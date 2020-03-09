@@ -1,8 +1,17 @@
 language: node_js
 node_js:
-  - 'stable'
+- stable
 install: npm install
 services:
-  - mongodb
+- mongodb
 script: npm test
 after_success: npm run coverage
+deploy:
+  provider: heroku
+  api_key:
+    secure: 4prpHf5AIzh73OaCQwSGAHZ7iqZOJ6URz6pBm7+qvkWMmVQk6JKla/9+LDee0PoJNEV6ImvSh0C44HqzZABuybardHDwfcEX63x4D6rnrus0mROMvH/uZmxhypSOLZpvAInZAwVsHnK2yTUkOef9y8KFMWJ/GwAM4zPGFUinv8BAfVFPSCl7Sxk0jvKlAvI8upEUse3jUmdJiPDY7nQesYr+fyAM8wbprxTRu82ddwn/AEElceuM0p+kgVxrmq+3Jn4zfsUckSnFCt6l+JVscYne14kne4iLulNbLzP8UmNyG89Y4qNc08foQ2utSXDjIN3FQHtm2NwavQ5+uQsT3okIC2EVUJYtVdhFtmuCuw5vBRZyIvUIWfsczkQQ5y5Vdaz/p0yZRUMacUQ4BePiB2C5nehvnpWimg0+a5tyME5dNsTtt3LWBDx0wFTeW6A+4W5pn1LZ/Qj2ADc5VqplqA1q4M9fV90vQuKWJeeAIma3TjjNd2KY9tN9Hx+IxemWVCL6jGJn9BZqYfo4SXEIDwfEgp1YwiWMaCogDvmTSkDEHqIRVGK3NH/DLlxWmb3aodTW2VPcT1hGfp313k9RF9mDUaCaV0rm4RCP1mHgVZl/i/JDvpQRd6OL0ha6jhcn/GGuEDOMnbe14QDIOCcMxSRy43a5fA4acdHQlkIwCyM=
+  app: your-heroku-app-cipractice
+  on:
+    repo: ReginaClarke/mongodb-mongoose-express-ci
+run:
+    - "node seed/userProjects.js"
